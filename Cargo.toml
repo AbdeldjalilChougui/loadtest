@@ -1,0 +1,39 @@
+[package]
+name = "loadtest"
+version = "0.1.0"
+edition = "2021"
+authors = ["Abdeldjalil Chougui"]
+license = "MIT"
+description = "HTTP load tester: fixed concurrency or open-model target rate, HDR latency histograms, live TUI, JSON output"
+repository = "https://github.com/AbdeldjalilChougui/loadtest"
+homepage = "https://github.com/AbdeldjalilChougui/loadtest"
+readme = "README.md"
+keywords = ["http", "load-testing", "benchmark", "latency", "hdrhistogram"]
+categories = ["command-line-utilities", "development-tools::profiling", "web-programming::http-client"]
+include = ["src/**/*", "Cargo.toml", "Cargo.lock", "README.md", "LICENSE", "CITATION.cff"]
+
+[[bin]]
+name = "loadtest"
+path = "src/main.rs"
+
+[dependencies]
+bytes = "1.12.1"
+clap = { version = "4.6.7", features = ["derive"] }
+hdrhistogram = "7.6.0"
+http-body-util = "0.1.5"
+hyper = { version = "1.12.0", features = ["client", "http1"] }
+hyper-util = { version = "0.1.21", features = ["client-legacy", "http1", "tokio"] }
+ratatui = "0.30.2"
+serde = { version = "1.0.229", features = ["derive"] }
+serde_json = "1.0.154"
+tokio = { version = "1.53.3", features = ["rt-multi-thread", "macros", "time", "sync", "net", "signal"] }
+
+[dev-dependencies]
+hyper = { version = "1.12.0", features = ["server", "http1"] }
+hyper-util = { version = "0.1.21", features = ["server", "tokio", "http1"] }
+tokio = { version = "1.53.3", features = ["rt-multi-thread", "macros", "net", "time"] }
+
+# The profile that 'dist' will build with
+[profile.dist]
+inherits = "release"
+lto = "thin"
