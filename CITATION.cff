@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using the metadata from this file."
+type: software
+title: "loadtest"
+abstract: "HTTP load tester: fixed concurrency or open-model target rate, HDR latency histograms, live TUI, JSON output"
+authors:
+  - family-names: Chougui
+    given-names: Abdeldjalil
+version: 0.1.0
+license: MIT
+repository-code: "https://github.com/AbdeldjalilChougui/loadtest"
+url: "https://github.com/AbdeldjalilChougui/loadtest"
+keywords: [http, load-testing, benchmark, latency, hdrhistogram]
